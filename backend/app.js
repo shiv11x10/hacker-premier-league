@@ -1,4 +1,4 @@
-// require('dotenv').config()
+require('dotenv').config()
 const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -10,7 +10,7 @@ const app = express();
 
 mongoose
   .connect(
-    'mongodb+srv://shivamXI:Shivam*1996@cluster0.sab3t.gcp.mongodb.net/hacker-premier-league?retryWrites=true&w=majority',
+    process.env.MONGO_API,
     {useNewUrlParser: true, useUnifiedTopology: true}
   )
   .then(() => {
