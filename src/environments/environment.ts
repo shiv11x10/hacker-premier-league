@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "http://localhost:3000/api"
+  apiUrl: "http://hackerpremierleague-env.eba-ebscusdx.ap-south-1.elasticbeanstalk.com/"
 };
 
 /*

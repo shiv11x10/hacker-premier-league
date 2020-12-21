@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { UserData } from './data.model';
@@ -14,7 +14,7 @@ export class DataService {
     }
 
     getData() {
-        this.http.get<{ message:string; data: UserData[]}>(BACKEND_URL + "/data")
+        this.http.get<{ message:string; data: UserData[]}>(BACKEND_URL)
         .subscribe(res => {
             this.data = res.data;
             this.dataSubject.next(this.data);
@@ -33,7 +33,7 @@ export class DataService {
         
         this.http
         .post<{ message: string; data: UserData }>(
-            BACKEND_URL + "/data",
+            BACKEND_URL,
             Data
         )
         .subscribe(responseData => {
@@ -51,7 +51,7 @@ export class DataService {
             score: winner.score + 3
         };
         this.http
-        .put(BACKEND_URL + "/data/win/" + winner._id, updateTeams)
+        .put(BACKEND_URL + "win/" + winner._id, updateTeams)
         .subscribe(response => {
             // console.log(response)
         });
@@ -67,7 +67,7 @@ export class DataService {
             score: loser.score - 1
         };
         this.http
-        .put(BACKEND_URL + "/data/lose/" + loser._id, updateTeams)
+        .put(BACKEND_URL + "lose/" + loser._id, updateTeams)
         .subscribe(response => {
             // console.log(response)
         });
@@ -83,7 +83,7 @@ export class DataService {
             score: team.score + 1
         };
         this.http
-        .put(BACKEND_URL + "/data/tie/" + team._id, updateTeams)
+        .put(BACKEND_URL + "tie/" + team._id, updateTeams)
         .subscribe(response => {
             // console.log(response)
         });
