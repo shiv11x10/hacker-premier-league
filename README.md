@@ -2,9 +2,21 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.4.
 
+# Deployed with AWS
+Frontend is deployed in S3 bucket and backendis deployed with AWS Beanstalk
+Web link: [http://hacker-premier-league.s3-website.ap-south-1.amazonaws.com/](http://hacker-premier-league.s3-website.ap-south-1.amazonaws.com/)
+
+# Database Deployment
+Database is depolyed in MongoDB
+
+# Recreate Application in local server
+
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Chnage the apiUrl in environment.js to `http://localhost:4200/`
+- backend server with npm run start:server after changing the MongoDb URI to your own in server.js
+
 
 ## Code scaffolding
 
